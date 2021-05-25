@@ -3,7 +3,7 @@ import os
 import random
 import string
 
-length = 10
+length = 20
 
 
 def hash_preimage(target_string):
@@ -25,6 +25,7 @@ def hash_preimage(target_string):
         sha_str = get_sha_last_digit(test_str, tra_length)
 
     nonce = test_str
+    print(nonce)
     return nonce
 
 
@@ -39,4 +40,5 @@ def get_sha_last_digit(word, num):
     last_digits = sha_str[-num:]
     return last_digits
 
-# hash_preimage('01000')
+
+hash_preimage('0011000')
