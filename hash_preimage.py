@@ -25,7 +25,6 @@ def hash_preimage(target_string):
         sha_str = get_sha_last_digit(test_str, tra_length)
 
     nonce = test_str
-    print(nonce)
     return nonce
 
 
