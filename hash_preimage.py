@@ -1,7 +1,5 @@
 import hashlib
 import os
-import random
-import string
 
 length = 20
 
@@ -14,25 +12,19 @@ def hash_preimage(target_string):
 
     tra_length = len(target_string)
 
-    # Create a random string
-    test_str = get_random_string(length)
+    # Create a random byte
+    test_str = os.urandom(length)
 
     # Sha256 the string and then get the last k digits of the result
     sha_str = get_sha_last_digit(test_str, tra_length)
 
     while sha_str != target_string:
-        test_str = get_random_string(length)
+        test_str = os.urandom(length)
         sha_str = get_sha_last_digit(test_str, tra_length)
 
     nonce = test_str
-    print(nonce)
+    # print(nonce)
     return nonce
-
-
-def get_random_string(len):
-    letters = string.ascii_letters
-    result_str = str.encode(''.join(random.choice(letters) for i in range(len)))
-    return result_str
 
 
 def get_sha_last_digit(word, num):
@@ -41,4 +33,4 @@ def get_sha_last_digit(word, num):
     return last_digits
 
 
-hash_preimage('0011000')
+# hash_preimage('001100')
