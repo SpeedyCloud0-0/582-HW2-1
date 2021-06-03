@@ -28,7 +28,7 @@ def hash_preimage(target_string):
 
 
 def get_sha_last_digit(word, num):
-    sha_str = hashlib.sha256(word).hexdigest()
+    sha_str = hashlib.sha256(word).digest()
     last_digits = sha_str[-num:]
     return last_digits
 
